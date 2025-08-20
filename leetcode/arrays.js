@@ -21,7 +21,7 @@ var containsDuplicate = function(nums) {
 
 };
 
-// NOTE: Valid anagram - check if one string is anagram of another string
+// NOTE:  2.Valid anagram - check if one string is anagram of another string
 
 
 /**
@@ -49,3 +49,33 @@ var isAnagram = function(s, t) {
 
   return true;
 };
+
+
+// NOTE: 3. two sum 
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+  let n = nums.length;
+
+  let map = new Map();
+
+  for (let i = 0; i < n; i++) {
+    let diff = target - nums[i];
+
+    if (map.has(diff)) return [map.get(diff), i];
+
+    map.set(nums[i], i);
+
+  }
+  return [-1, -1];
+
+};
+
+
+
+
