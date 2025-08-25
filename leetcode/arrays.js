@@ -52,7 +52,7 @@ var isAnagram = function(s, t) {
 
 
 // NOTE: 3. two sum 
-
+// NOTE: the brute can be done using the two loops (big O n square TC)
 
 /**
  * @param {number[]} nums
@@ -75,6 +75,36 @@ var twoSum = function(nums, target) {
   return [-1, -1];
 
 };
+
+// NOTE: 4.Group anagrams : 
+// this solion makes this even more efficient by removing the need for the sorting and we are generating the key bu using the freq
+// array this.
+
+
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function(strs) {
+
+  let map = new Map();
+  for (let str of strs) {
+    let count = new Array.fill(0);
+
+    for (let char of str) {
+      count[char.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+    }
+    let key = count.join('#');
+
+    if (!map.has(key)) {
+      map.set(key, []);
+    }
+    map.get(key).push(str);
+  }
+  return Array.from(map.values());
+};
+
+// NOTE:  5. 
 
 
 
